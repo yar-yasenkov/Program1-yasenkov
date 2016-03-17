@@ -31,11 +31,11 @@ public:
 	Matrix(int _rows, int _columns, int time);
 	void Zapoln(char path[256])
 	{
-		char fulpath[256] = "D:\\labiu8\\2 сем\\lab3\\Debug\\";
+		char fulpath[256] = "D:\\labiu8\\2 Г±ГҐГ¬\\lab3\\Debug\\";
 		int a, i, j;
 		fstream fin;
 		strcat_s(fulpath, path);
-		fin.open(fulpath, ios::in);//открытие файла
+		fin.open(fulpath, ios::in);//Г®ГІГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г 
 		if (fin.is_open())
 		{
 			for (int j = 0; j<rows; j++)
@@ -82,7 +82,7 @@ public:
 
 
 	Matrix & operator=(const Matrix & matrix) {
-		if (this != &matrix) { //перегруженный оператор присваивания
+		if (this != &matrix) { //ГЇГҐГ°ГҐГЈГ°ГіГ¦ГҐГ­Г­Г»Г© Г®ГЇГҐГ°Г ГІГ®Г° ГЇГ°ГЁГ±ГўГ ГЁГўГ Г­ГЁГї
 			for (int i = 0; i < rows; i++)
 				delete[] m[i];
 			delete[] m;
@@ -122,15 +122,15 @@ public:
 
 
 
-	Matrix operator+ (const Matrix&);
-	Matrix operator*(const Matrix&);
+	Matrix operator+ (const Matrix&) const;
+	Matrix operator*(const Matrix&) const;
     int* operator[](int a);
 	int kolstrok() const;
 	int kolstolb() const;
 };
 
 
-//конструктор случайной матрицы
+//ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г° Г±Г«ГіГ·Г Г©Г­Г®Г© Г¬Г ГІГ°ГЁГ¶Г»
 Matrix::Matrix(int _rows, int _columns, int time)
 {
 	rows = _rows;
@@ -162,7 +162,7 @@ int Matrix::kolstolb() const
 	return columns;
 }
 
-Matrix Matrix::operator+(const Matrix &a)
+Matrix Matrix::operator+(const Matrix &a) const
 {
 
 	Matrix res(rows, columns);
@@ -176,7 +176,7 @@ Matrix Matrix::operator+(const Matrix &a)
 	return res;
 }
 
-Matrix Matrix::operator*(const Matrix &a)
+Matrix Matrix::operator*(const Matrix &a) const
 {
 	int value=0;
 	Matrix res(rows, a.columns);
