@@ -124,7 +124,7 @@ public:
 
 	Matrix operator+ (const Matrix&) const;
 	Matrix operator*(const Matrix&) const;
-    int* operator[](int a);
+    int* operator[](int a) const;
 	int kolstrok() const;
 	int kolstolb() const;
 };
@@ -196,7 +196,7 @@ Matrix Matrix::operator*(const Matrix &a) const
 	return res;
 }
 
-int* Matrix::operator[](int a)
+int* Matrix::operator[](int a) const
 {
 	int *newrow;
 	newrow = new int[columns];
