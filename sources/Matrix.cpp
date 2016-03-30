@@ -12,7 +12,7 @@ using namespace std;
 
 
 
-
+/*
 int _tmain(int argc, _TCHAR* argv[])
 {
 	int kolstr, kolstl, kolstr3, kolstl3, time;;
@@ -90,5 +90,5 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	system("pause");
 	return 0;
-}
+}*/
 
