@@ -58,11 +58,13 @@ SCENARIO("Matrix show", "[show]") {
 }
 
 SCENARIO("Matrix row", "[row]") {
+	bool marker=false;
 	Matrix A = Matrix(2,2);
 	A.Zapoln("A2x2.txt");
 	int expected[2]={1,1};
 	int *result;
 	result = A[1];
-	REQUIRE((expected[0]==result[0]) && (expected[1]==result[1]));
-	
+	if ((expected[0]==result[0]) && (expected[1]==result[1]))
+	  marker=true;
+	REQUIRE(marker);
 }
