@@ -130,6 +130,7 @@ public:
 
 	Matrix operator+ (const Matrix&) const;
 	Matrix operator*(const Matrix&) const;
+        bool operator==(const Matrix rightmat&) const;
     int* operator[](int a) const;
 	int kolstrok() const;
 	int kolstolb() const;
@@ -201,6 +202,21 @@ Matrix Matrix::operator*(const Matrix &a) const
 
 	return res;
 }
+
+bool Matrix::operator==(const Matrix &right) const// оператор сравнения
+{
+	if (rows != right.rows || columns != right.columns)
+		return false; // матрицы с разным количеством элементов
+
+	for (int ix = 0; ix < rows; ix++)
+		for (int jx = 0; jx < columns; jx++)
+			if (_matrix[ix][jx] != right._matrix[ix][jx])
+				return false; // матрицы не равны
+
+	return true; // матрицы равны
+}
+
+
 
 int* Matrix::operator[](int a) const
 {
