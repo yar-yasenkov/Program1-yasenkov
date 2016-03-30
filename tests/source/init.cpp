@@ -44,7 +44,7 @@ SCENARIO("Matrix *", "[multiplying]") {
 	Matrix B = Matrix(2,2);
 	B.Zapoln("B2x2.txt");
 	Matrix expected = Matrix(2,2);
-	expected.Zapoln("AxB2x2.txt")
+	expected.Zapoln("AxB2x2.txt");
 	Matrix result = A * B;
 	REQUIRE(result == expected);
 }
