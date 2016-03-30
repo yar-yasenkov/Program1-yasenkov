@@ -20,11 +20,11 @@ SCENARIO("Matrix init", "[init]") {
 		}
 	}
 }
-
+/*
 SCENARIO("Matrix >>", "[fill]") {
 	Matrix A = Matrix(2, 2);
 	REQUIRE( A.Zapoln("A2x2.txt") );
-}
+}*/
 
 SCENARIO("Matrix +", "[addition]") {
 	Matrix A = Matrix(2, 2);
