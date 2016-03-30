@@ -56,8 +56,9 @@ public:
 		}
 		fin.close();
 	}
-	void Show(int kolstr, int kolstl) const
+	bool Show(int kolstr, int kolstl) const
 	{
+		bool mark=false;
 		for (int i = 0; i < kolstr; i++)
 		{
 			cout << endl;
@@ -67,7 +68,9 @@ public:
 				cout << " " << m[i][j];
 			}
 		}
+	        mark=true;
 		cout << endl;
+		return mark;
 	}
 	Matrix(const Matrix &M) :
 		columns(M.columns),
