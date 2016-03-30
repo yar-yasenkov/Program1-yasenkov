@@ -61,12 +61,12 @@ SCENARIO("Matrix row", "[row]") {
 	bool marker=false;
 	Matrix A = Matrix(2,2);
 	A.Zapoln("A2x2.txt");
-	A.Show(2,2);
+//	A.Show(2,2);
 	int expected[2]={1,1};
 	int *result;
 	result = A[0];
-	cout << result[0] << endl;
-	cout << result[1] << endl;
+//	cout << result[0] << endl;
+//	cout << result[1] << endl;
 	if ((expected[0]==result[0]) && (expected[0]==result[0]))
 	  marker=true;
 	REQUIRE(marker);
