@@ -130,7 +130,7 @@ public:
 
 	Matrix operator+ (const Matrix&) const;
 	Matrix operator*(const Matrix&) const;
-        bool operator==(const Matrix rightmat&) const;
+        bool operator==(const Matrix & rightmat) const;
     int* operator[](int a) const;
 	int kolstrok() const;
 	int kolstolb() const;
