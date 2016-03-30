@@ -61,6 +61,7 @@ SCENARIO("Matrix row", "[row]") {
 	bool marker=false;
 	Matrix A = Matrix(2,2);
 	A.Zapoln("A2x2.txt");
+	A.Show(2,2);
 	int expected[2]={1,1};
 	int *result;
 	result = A[1];
