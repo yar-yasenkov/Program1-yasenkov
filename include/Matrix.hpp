@@ -37,7 +37,7 @@ public:
 	Matrix(int _rows, int _columns, int time);
 	void Zapoln(char path[256])
 	{
-		char fulpath[256] = "D:\\labiu8\\2 ñåì\\lab3\\Debug\\data.txt";
+		char fulpath[256] = "path";
 		int a, i, j;
 		fstream fin;
 		//strcat_s(fulpath, path);
