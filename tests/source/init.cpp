@@ -48,3 +48,11 @@ SCENARIO("Matrix *", "[multiplying]") {
 	Matrix result = A * B;
 	REQUIRE(result == expected);
 }
+
+SCENARIO("Matrix show", "[show]") {
+	Matrix A = Matrix(2,2);
+	bool marker=false;
+	if (A.Show(2,2))
+	  marker=true;
+	REQUIRE(marker);
+}
