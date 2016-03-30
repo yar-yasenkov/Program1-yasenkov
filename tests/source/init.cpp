@@ -41,6 +41,7 @@ SCENARIO("Matrix +", "[addition]") {
 SCENARIO("Matrix *", "[multiplying]") {
 	Matrix A = Matrix(2, 2);
 	A.Zapoln("A2x2.txt");
+	A.Show(2,2);//rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
 	Matrix B = Matrix(2,2);
 	B.Zapoln("B2x2.txt");
 	Matrix expected = Matrix(2,2);
