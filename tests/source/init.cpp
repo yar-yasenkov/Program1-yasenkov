@@ -64,7 +64,7 @@ SCENARIO("Matrix row", "[row]") {
 	int expected[2]={1,1};
 	int *result;
 	result = A[1];
-	if (expected[0]==result[0])
+	if (expected[0]==1)
 	  marker=true;
 	REQUIRE(marker);
 }
