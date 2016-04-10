@@ -27,11 +27,11 @@ SCENARIO("Matrix >>", "[fill]") {
 }*/
 
 SCENARIO("Matrix +", "[addition]") {
-	Matrix<int> A = Matrix(2, 2);
+	Matrix<int> A = Matrix<int>(2, 2);
 	A.Zapoln("A2x2.txt");
-	Matrix<int> B = Matrix(2, 2);
+	Matrix<int> B = Matrix<int>(2, 2);
 	B.Zapoln("B2x2.txt");
-	Matrix<int> expected = Matrix(2, 2);
+	Matrix<int> expected = Matrix<int>(2, 2);
 	expected.Zapoln("A+B2x2.txt");
 
 	Matrix<int> result = A + B;
@@ -39,18 +39,18 @@ SCENARIO("Matrix +", "[addition]") {
 }
 
 SCENARIO("Matrix *", "[multiplying]") {
-	Matrix<int> A = Matrix(2, 2);
+	Matrix<int> A = Matrix<int>(2, 2);
 	A.Zapoln("A2x2.txt");
-	Matrix<int> B = Matrix(2,2);
+	Matrix<int> B = Matrix<int>(2,2);
 	B.Zapoln("B2x2.txt");
-	Matrix<int> expected = Matrix(2,2);
+	Matrix<int> expected = Matrix<int>(2,2);
 	expected.Zapoln("AxB2x2.txt");
 	Matrix<int> result = A * B;
 	REQUIRE(result == expected);
 }
 
 SCENARIO("Matrix show", "[show]") {
-	Matrix<int> A = Matrix(2,2);
+	Matrix<int> A = Matrix<int>(2,2);
 	bool marker=false;
 	if (A.Show(2,2))
 	  marker=true;
@@ -59,7 +59,7 @@ SCENARIO("Matrix show", "[show]") {
 
 SCENARIO("Matrix row", "[row]") {
 	bool marker=false;
-	Matrix<int> A = Matrix(2,2);
+	Matrix<int> A = Matrix<int>(2,2);
 	A.Zapoln("A2x2.txt");
 //	A.Show(2,2);
 	int expected[2]={1,1};
