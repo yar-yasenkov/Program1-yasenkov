@@ -11,26 +11,28 @@ class Matrix
 private:
 	T **m;
 	int columns, rows;
-	friend void input (Matrix& object)
+	friend istream& operator>>(istream& os, Matrix& object)
 	{
 		for (int i = 0; i < object.rows; i++)
 		{
 			for (int j = 0; j < object.columns; j++)
 			{
-				cin >> object.m[i][j];
+				os >> object.m[i][j];
 			}
 		}
+		return os;
 	}
-	friend void output(Matrix& object)
+	friend ostream& operator<<(ostream& os, Matrix& object)
 	{
 		for (int i = 0; i < object.rows; i++)
 		{
 			for (int j = 0; j < object.columns; j++)
 			{
-				cout << object.m[i][j] << " ";
+				os << object.m[i][j] << " ";
 			}
-			cout << endl;
+			os << endl;
 		}
+		return os;
 	}
 public:
 	Matrix() :rows(0), columns(0), m(nullptr)
@@ -42,7 +44,7 @@ public:
 		{
 			if ((kolstr < 0) || (kolstl < 0))
 			{
-				throw "Ðàçìåðíîñòü ìàòðèöû íå ìîæåò áûòü îòðèöàòåëüíîé!";
+				throw "Ð Ð°Ð·Ð¼ÐµÑ€Ð½Ð¾ÑÑ‚ÑŒ Ð¼Ð°Ñ‚Ñ€Ð¸Ñ†Ñ‹ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¾Ñ‚Ñ€Ð¸Ñ†Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ð¹!";
 			}
 			m = new T *[rows];
 			for (int i = 0; i<rows; i++)
@@ -64,11 +66,11 @@ public:
 	Matrix(int _rows, int _columns, int time);
 	void Zapoln(char path[256])
 	{
-		char fulpath[256] = "D:\\labiu8\\2 ñåì\\lab3\\Debug\\";
+		char fulpath[256] = "D:\\labiu8\\2 ÑÐµÐ¼\\lab3\\Debug\\";
 		int a;
 		fstream fin;
 		strcat_s(fulpath, path);
-		fin.open(fulpath, ios::in);//îòêðûòèå ôàéëà
+		fin.open(fulpath, ios::in);//Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ Ñ„Ð°Ð¹Ð»Ð°
 		if (fin.is_open())
 		{
 			for (int j = 0; j<rows; j++)
@@ -115,7 +117,7 @@ public:
 
 
 	Matrix & operator=(const Matrix & matrix) {
-		if (this != &matrix) { //ïåðåãðóæåííûé îïåðàòîð ïðèñâàèâàíèÿ
+		if (this != &matrix) { //Ð¿ÐµÑ€ÐµÐ³Ñ€ÑƒÐ¶ÐµÐ½Ð½Ñ‹Ð¹ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€ Ð¿Ñ€Ð¸ÑÐ²Ð°Ð¸Ð²Ð°Ð½Ð¸Ñ
 			for (int i = 0; i < rows; i++)
 				delete[] m[i];
 			delete[] m;
@@ -163,7 +165,7 @@ public:
 };
 
 
-//êîíñòðóêòîð ñëó÷àéíîé ìàòðèöû
+//ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ ÑÐ»ÑƒÑ‡Ð°Ð¹Ð½Ð¾Ð¹ Ð¼Ð°Ñ‚Ñ€Ð¸Ñ†Ñ‹
 template <typename T>
 Matrix<T>::Matrix(int _rows, int _columns, int time)
 {
@@ -247,29 +249,3 @@ T* Matrix<T>::operator[](int a) const
 	
 	return newrow;
 }
-
-
-//template <typename T>
-/*void input(Matrix& object)
-{
-	for (int i = 0; i < object.rows; i++)
-	{
-		for (int j = 0; j < object.columns; j++)
-		{
-			cin >> object.m[i][j];
-		}
-	}
-}
-
-template <typename T>
-void output(Matrix<T>& object)
-{
-	for (int i = 0; i < object.rows; i++)
-	{
-		for (int j = 0; j < object.columns; j++)
-		{
-			cout << object.m[i][j] << " ";
-		}
-		cout << endl;
-	}
-}*/
