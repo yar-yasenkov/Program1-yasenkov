@@ -207,7 +207,7 @@ public:
 
 	Matrix operator+ (const Matrix&) const;
 	Matrix operator*(const Matrix&) const;
-    T* operator[](int a) const;
+    T* operator[](int a);
 	int kolstrok() const;
 	int kolstolb() const;
 };
