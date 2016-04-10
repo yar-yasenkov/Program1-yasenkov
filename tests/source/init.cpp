@@ -10,7 +10,7 @@ SCENARIO("Matrix init", "[init]") {
 
 		WHEN("Create instansce of Matrix") {
 
-			Matrix matrix(rows, columns);
+			Matrix<int> matrix(rows, columns);
 
 			THEN("The number of rows and columns must be preserved") {
 
@@ -27,30 +27,30 @@ SCENARIO("Matrix >>", "[fill]") {
 }*/
 
 SCENARIO("Matrix +", "[addition]") {
-	Matrix A = Matrix(2, 2);
+	Matrix<int> A = Matrix(2, 2);
 	A.Zapoln("A2x2.txt");
-	Matrix B = Matrix(2, 2);
+	Matrix<int> B = Matrix(2, 2);
 	B.Zapoln("B2x2.txt");
-	Matrix expected = Matrix(2, 2);
+	Matrix<int> expected = Matrix(2, 2);
 	expected.Zapoln("A+B2x2.txt");
 
-	Matrix result = A + B;
+	Matrix<int> result = A + B;
 	REQUIRE(result == expected);
 }
 
 SCENARIO("Matrix *", "[multiplying]") {
-	Matrix A = Matrix(2, 2);
+	Matrix<int> A = Matrix(2, 2);
 	A.Zapoln("A2x2.txt");
-	Matrix B = Matrix(2,2);
+	Matrix<int> B = Matrix(2,2);
 	B.Zapoln("B2x2.txt");
-	Matrix expected = Matrix(2,2);
+	Matrix<int> expected = Matrix(2,2);
 	expected.Zapoln("AxB2x2.txt");
-	Matrix result = A * B;
+	Matrix<int> result = A * B;
 	REQUIRE(result == expected);
 }
 
 SCENARIO("Matrix show", "[show]") {
-	Matrix A = Matrix(2,2);
+	Matrix<int> A = Matrix(2,2);
 	bool marker=false;
 	if (A.Show(2,2))
 	  marker=true;
@@ -59,7 +59,7 @@ SCENARIO("Matrix show", "[show]") {
 
 SCENARIO("Matrix row", "[row]") {
 	bool marker=false;
-	Matrix A = Matrix(2,2);
+	Matrix<int> A = Matrix(2,2);
 	A.Zapoln("A2x2.txt");
 //	A.Show(2,2);
 	int expected[2]={1,1};
