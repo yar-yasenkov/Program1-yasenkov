@@ -345,7 +345,7 @@ public:
 	}
 		fin.close();
 	}
-	void Show(int kolstr, int kolstl) const
+/*	void Show(int kolstr, int kolstl) const
 	{
 		try
 		{
@@ -386,6 +386,36 @@ public:
 				m[i][j] = M.m[i][j];
 			}
 		}
+	}*/
+	bool Show(int kolstr, int kolstl) const
+	{
+		bool mark=false;
+		try
+		{
+			if ((kolstr < 0) || (kolstl < 0))
+			{
+				if (kolstl < 0)
+					throw Badindex(kolstl);
+				else
+					throw Badindex(kolstr);
+			}
+			for (int i = 0; i < kolstr; i++)
+			{
+				cout << endl;
+				for (int j = 0; j < kolstl; j++)
+				{
+                                        mark=true;
+					cout << " " << m[i][j];
+				}
+			}
+			cout << endl;
+		}
+		catch (Badindex & bi)
+		{ 
+			bi.Report();
+		}
+		
+		return mark;
 	}
 
 
