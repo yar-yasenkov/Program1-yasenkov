@@ -39,6 +39,7 @@ private:
 		return os;
 	}
 public:
+	bool testmarker;
 	class Badindex //класс исключений
 	{
 	public:
@@ -47,10 +48,12 @@ public:
 		void Report() const
 		{
 			cout << "This value can not be negative" << badindex << endl;
+			testmarker=true;
 		}
 		void Reportrow() const
 		{
 			cout << "This row does not exist" << endl;
+			testmarker=true;
 		}
 	};
 		
@@ -59,7 +62,7 @@ public:
 	Matrix(int kolstr, int kolstl) :
 		columns(kolstl), rows(kolstr) 
 	{
-		
+	   testmarker=false;	
 		try
 		{
 			if ((kolstr < 0) || (kolstl < 0))
@@ -298,6 +301,7 @@ Matrix<T> Matrix<T>::operator*(const Matrix &a) const
 template <typename T>
 T* Matrix<T>::operator[](int a) const
 {
+	testmarker=false;
 	T *newrow;
 	newrow = new T[columns];
 	try
