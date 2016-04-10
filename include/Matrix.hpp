@@ -83,6 +83,7 @@ public:
 		catch (Badindex & bi)
 		{
 			bi.Report();
+			m=nullptr;
 		}
 	}
 
@@ -115,48 +116,7 @@ public:
 	}
 		fin.close();
 	}
-/*	void Show(int kolstr, int kolstl) const
-	{
-		try
-		{
-			if ((kolstr < 0) || (kolstl < 0))
-			{
-				if (kolstl < 0)
-					throw Badindex(kolstl);
-				else
-					throw Badindex(kolstr);
-			}
-			for (int i = 0; i < kolstr; i++)
-			{
-				cout << endl;
-				for (int j = 0; j < kolstl; j++)
-				{
-
-					cout << " " << m[i][j];
-				}
-			}
-			cout << endl;
-		}
-		catch (Badindex & bi)
-		{ 
-			bi.Report();
-		}
-	}
-		Matrix(const Matrix &M) :
-		columns(M.columns),
-		rows(M.rows)
-	{
-		m = new T*[rows];
-	    for (int i = 0; i < rows; i++)
-		{
-			m[i] = new T[columns];
-			for (int j = 0; j < columns; j++)
-			{
-
-				m[i][j] = M.m[i][j];
-			}
-		}
-	}*/
+	
 	bool Show(int kolstr, int kolstl) const
 	{
 		bool mark=false;
