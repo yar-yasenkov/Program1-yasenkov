@@ -45,15 +45,15 @@ public:
 	public:
 		int badindex;
 		Badindex(int i) : badindex(i) {}
-		void Report() 
+		bool Report() 
 		{
 			cout << "This value can not be negative" << badindex << endl;
-			testmarker=true;
+			return true;
 		}
-		void Reportrow() 
+		bool Reportrow() 
 		{
 			cout << "This row does not exist" << endl;
-			testmarker=true;
+			return true;
 		}
 	};
 		
@@ -85,7 +85,7 @@ public:
 		}
 		catch (Badindex & bi)
 		{
-			bi.Report();
+			testmarker=bi.Report();
 			m=nullptr;
 		}
 	}
@@ -317,7 +317,7 @@ T* Matrix<T>::operator[](int a)
 	}
 	catch (Badindex & bi)
 	{
-		bi.Reportrow();
+		testmarker=bi.Reportrow();
 	}
 	return newrow;
 }
