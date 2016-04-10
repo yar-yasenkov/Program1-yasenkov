@@ -412,7 +412,18 @@ public:
 	}
 
 
+        bool Matrix::operator==(const Matrix &right) const// оператор сравнения
+       {
+          	if (rows != right.rows || columns != right.columns)
+    		return false; // матрицы с разным количеством элементов
 
+	for (int i = 0; i < rows; i++)
+		for (int j = 0; j < columns; j++)
+			if (m[i][j] != right.m[i][j])
+				return false; // матрицы не равны
+
+	return true; // матрицы равны
+        }
 
 
 
