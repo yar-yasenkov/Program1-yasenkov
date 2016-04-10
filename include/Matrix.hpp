@@ -412,7 +412,7 @@ public:
 	}
 
 
-        bool Matrix::operator==(const Matrix &right) const// оператор сравнения
+        bool operator==(const Matrix &right) const// оператор сравнения
        {
           	if (rows != right.rows || columns != right.columns)
     		return false; // матрицы с разным количеством элементов
