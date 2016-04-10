@@ -45,12 +45,12 @@ public:
 	public:
 		int badindex;
 		Badindex(int i) : badindex(i) {}
-		void Report() const
+		void Report() 
 		{
 			cout << "This value can not be negative" << badindex << endl;
 			testmarker=true;
 		}
-		void Reportrow() const
+		void Reportrow() 
 		{
 			cout << "This row does not exist" << endl;
 			testmarker=true;
@@ -299,7 +299,7 @@ Matrix<T> Matrix<T>::operator*(const Matrix &a) const
 
 
 template <typename T>
-T* Matrix<T>::operator[](int a) const
+T* Matrix<T>::operator[](int a) 
 {
 	testmarker=false;
 	T *newrow;
