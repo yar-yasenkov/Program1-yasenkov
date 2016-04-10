@@ -71,3 +71,9 @@ SCENARIO("Matrix row", "[row]") {
 	  marker=true;
 	REQUIRE(marker);
 }
+
+SCENARIO("Check exeption", "[exeption]") {
+		int rows = -4;
+		int columns = 3;
+		Matrix<int> matrix(rows, columns);
+}
