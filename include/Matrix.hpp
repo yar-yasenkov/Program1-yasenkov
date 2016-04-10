@@ -317,13 +317,15 @@ public:
 	}
 
 	Matrix(int _rows, int _columns, int time);
-	void Zapoln(char path[256])
+        void Zapoln(string name)
 	{
-		char fulpath[256] = "D:\\labiu8\\2 сем\\lab3\\Debug\\";
-		int a;
+		//char fulpath[256] = "path";
+		string full_name;
+		full_name = name;
+		int  i,a,j;
 		fstream fin;
-		strcat_s(fulpath, path);
-		fin.open(fulpath, ios::in);//открытие файла
+		//strcat_s(fulpath, path);
+		fin.open(full_name, ios::in);//îòêðûòèå ôàéëà
 		if (fin.is_open())
 		{
 			for (int j = 0; j<rows; j++)
@@ -336,6 +338,11 @@ public:
 
 			}
 		}
+		else
+		 {
+		    cout << "Îøèáêà, ïîïðîáóéòå åùå ðàç";
+	            exit(100);
+	}
 		fin.close();
 	}
 	void Show(int kolstr, int kolstl) const
