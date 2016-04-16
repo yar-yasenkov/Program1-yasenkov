@@ -80,7 +80,7 @@ SCENARIO("Check exeption", "[exeption]") {
 	        {
 		Matrix<int> matrix(rows, columns);
 	        }
-	        catch(Badindex & bi)
+	        catch(Matrix::Badindex & bi)
 	        {
 	          marker=true;
 	        }
