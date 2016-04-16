@@ -393,7 +393,7 @@ public:
 	Matrix operator+ (const Matrix& second) const
 	{
 	int a,b,r;
-	char at,bt;
+	char *at,*bt;
 	Matrix res(rows, columns);
 	for (int i = 0; i < rows; i++)
 	{
