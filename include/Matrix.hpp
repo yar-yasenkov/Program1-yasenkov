@@ -58,8 +58,8 @@ public:
 		
 	Matrix() :rows(0), columns(0), m(nullptr)
 	{}
-	Matrix(int kolstr, int kolstl) :
-		columns(kolstl), rows(kolstr) throw(Badindex &)
+	Matrix(int kolstr, int kolstl) throw(Badindex &):
+		columns(kolstl), rows(kolstr) 
 	{
 		
 		
