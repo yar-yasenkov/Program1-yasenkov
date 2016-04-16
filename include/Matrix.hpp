@@ -66,9 +66,9 @@ public:
 			if ((kolstr < 0) || (kolstl < 0))
 			{
 				if (kolstl < 0)
-					throw &Badindex(kolstl);
+					throw Badindex(kolstl);
 				else
-					throw &Badindex(kolstr);
+					throw Badindex(kolstr);
 			}
 
 			m = new T *[rows];
