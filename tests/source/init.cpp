@@ -53,12 +53,15 @@ SCENARIO("Matrix<char> +", "[additionchar]") {
 SCENARIO("Matrx<double> +", "[additiondouble]") {
 	Matrix<double> A = Matrix<double>(2, 2);
 	A.Zapoln("A2x2d.txt");
+	A.Show(2,2);
 	Matrix<double> B = Matrix<double>(2, 2);
 	B.Zapoln("B2x2d.txt");
+	B.Show(2,2);
 	Matrix<double> expected = Matrix<double>(2, 2);
 	expected.Zapoln("A+B2x2d.txt");
-
+        expected.Show(2,2);
 	Matrix<double> result = A + B;
+	result.Show(2,2);
 	REQUIRE(result == expected);
 }
 SCENARIO("Matrix *", "[multiplying]") {
