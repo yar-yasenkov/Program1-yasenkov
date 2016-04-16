@@ -38,6 +38,18 @@ SCENARIO("Matrix +", "[addition]") {
 	REQUIRE(result == expected);
 }
 
+SCENARIO("Matrix<char> +", "[additionchar]") {
+	Matrix<char> A = Matrix<char>(2, 2);
+	A.Zapoln("A2x2.txt");
+	Matrix<char> B = Matrix<char>(2, 2);
+	B.Zapoln("B2x2.txt");
+	Matrix<char> expected = Matrix<char>(2, 2);
+	expected.Zapoln("A+B2x2.txt");
+
+	Matrix<char> result = A + B;
+	REQUIRE(result == expected);
+}
+
 SCENARIO("Matrix *", "[multiplying]") {
 	Matrix<int> A = Matrix<int>(2, 2);
 	A.Zapoln("A2x2.txt");
