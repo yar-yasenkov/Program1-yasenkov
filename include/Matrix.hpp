@@ -398,8 +398,8 @@ public:
 	{
 		for (int j = 0; j < columns; j++)
 		{
-		        a=atoi(m[i][j]);
-		        b=atoi(a.m[i][j]);
+		        a=atoi(*m[i][j]);
+		        b=atoi(*a.m[i][j]);
 			r=a+b;
 			itoa(r,res.m[i][j],10);
 			//res.m[i][j] = m[i][j] + a.m[i][j];
