@@ -83,7 +83,7 @@ public:
 
 	}
 
-	Matrix(int _rows, int _columns, int time);
+	Matrix(int _rows, int _columns, int time) throw (Badindex &);
         void Zapoln(string name)
 	{
 		//char fulpath[256] = "path";
@@ -195,7 +195,7 @@ public:
 
 	Matrix operator+ (const Matrix&) const;
 	Matrix operator*(const Matrix&) const;
-    T* operator[](int a);
+    T* operator[](int a) throw(Badindex &);
 	int kolstrok() const;
 	int kolstolb() const;
 };
