@@ -208,7 +208,7 @@ public:
 template <> class Matrix<char>
 {
 	private:
-	T **m;
+	char **m;
 	int columns, rows;
 	friend istream& operator>>(istream& os, Matrix& object)
 	{
@@ -267,10 +267,10 @@ public:
 					throw Badindex(kolstr);
 			}
 
-			m = new T *[rows];
+			m = new char *[rows];
 			for (int i = 0; i < rows; i++)
 			{
-				m[i] = new T[columns];
+				m[i] = new char[columns];
 				for (int j = 0; j < columns; j++)
 				{
 					m[i][j] = 0;
@@ -286,7 +286,7 @@ public:
 		string full_name;
 		full_name = name;
 		int  i,j;
-		T a;
+		char a;
 		fstream fin;
 		//strcat_s(fulpath, path);
 		fin.open(full_name, ios::in);//îòêðûòèå ôàéëà
@@ -345,10 +345,10 @@ public:
 			delete[] m;
 			columns = matrix.columns;
 			rows = matrix.rows;
-			m = new T *[rows];
+			m = new char *[rows];
 			for (int j = 0; j<rows; j++)
 			{
-				m[j] = new T[columns];
+				m[j] = new char[columns];
 				for (int i = 0; i < columns; i++)
 				{
 					m[j][i] = matrix.m[j][i];
@@ -408,10 +408,23 @@ public:
 	return res;
 	}
 	Matrix operator*(const Matrix&) const;
-    T* operator[](int a) throw(Badindex &);
-	int kolstrok() const;
-	int kolstolb() const;
-};
+        char* operator[](int a) throw(Badindex &)
+        {
+                char *newrow;
+        	newrow = new T[columns];
+	        if ((a > rows) || (a < 0))
+         	{
+	        	throw Badindex(a);
+        	}
+          	for (int i = 0; i < columns; i++)
+          	{
+        		newrow[i] = m[a][i];
+        	}
+        	return newrow;
+         	int kolstrok() const;
+        	int kolstolb() const;
+         }
+ };
 
 
 
