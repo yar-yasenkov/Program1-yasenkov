@@ -39,32 +39,30 @@ private:
 		return os;
 	}
 public:
-	bool testmarker;
 	class Badindex //класс исключений
 	{
 	public:
 		int badindex;
 		Badindex(int i) : badindex(i) {}
-		bool Report() 
+		void Report() 
 		{
 			cout << "This value can not be negative" << badindex << endl;
-			return true;
+			return ;
 		}
-		bool Reportrow() 
+	        void Reportrow() 
 		{
 			cout << "This row does not exist" << endl;
-			return true;
+			return ;
 		}
 	};
 		
 	Matrix() :rows(0), columns(0), m(nullptr)
 	{}
 	Matrix(int kolstr, int kolstl) :
-		columns(kolstl), rows(kolstr) 
+		columns(kolstl), rows(kolstr) throw(Badindex &)
 	{
-	   testmarker=false;	
-		try
-		{
+		
+		
 			if ((kolstr < 0) || (kolstl < 0))
 			{
 				if (kolstl < 0)
@@ -82,12 +80,7 @@ public:
 					m[i][j] = 0;
 				}
 			}
-		}
-		catch (Badindex & bi)
-		{
-			testmarker=bi.Report();
-			m=nullptr;
-		}
+
 	}
 
 	Matrix(int _rows, int _columns, int time);
@@ -120,33 +113,28 @@ public:
 		fin.close();
 	}
 	
-	bool Show(int kolstr, int kolstl) const
+	bool Show(int kolstr, int kolstl) const throw(Badindex &)
 	{
-		bool mark=false;
-		try
+	
+		bool mark;
+		
+		if ((kolstr < 0) || (kolstl < 0))
 		{
-			if ((kolstr < 0) || (kolstl < 0))
-			{
-				if (kolstl < 0)
-					throw Badindex(kolstl);
-				else
-					throw Badindex(kolstr);
-			}
-			for (int i = 0; i < kolstr; i++)
-			{
-				cout << endl;
-				for (int j = 0; j < kolstl; j++)
-				{
-                                        mark=true;
-					cout << " " << m[i][j];
-				}
-			}
+			if (kolstl < 0)
+				throw Badindex(kolstl);
+			else
+				throw Badindex(kolstr);
+		}
+		for (int i = 0; i < kolstr; i++)
+		{
 			cout << endl;
+			for (int j = 0; j < kolstl; j++)
+			{
+                                mark=true;
+				cout << " " << m[i][j];
+			}
 		}
-		catch (Badindex & bi)
-		{ 
-			bi.Report();
-		}
+		cout << endl;
 		
 		return mark;
 	}
@@ -215,36 +203,31 @@ public:
 
 //конструктор случайной матрицы
 template <typename T>
-Matrix<T>::Matrix(int _rows, int _columns, int time)
+Matrix<T>::Matrix(int _rows, int _columns, int time) throw (Badindex &)
 {
-	try
+
+	
+	if ((_rows < 0) || (_columns < 0))
 	{
-		if ((_rows < 0) || (_columns < 0))
-		{
-			if (_rows < 0)
-				throw Badindex(_rows);
-			else
-				throw Badindex(_columns);
-		}
-		rows = _rows;
-		columns = _columns;
-		m = new T *[rows];
-		for (int i = 0; i < rows; i++)
-		{
-			m[i] = new T[columns];
-		}
-		srand(time);
-		for (int i = 0; i < rows; i++)
-		{
-			for (int j = 0; j < columns; j++)
-			{
-				m[i][j] = rand() % 10;
-			}
-		}
+		if (_rows < 0)
+			throw Badindex(_rows);
+		else
+			throw Badindex(_columns);
 	}
-	catch (Badindex & bi)
+	rows = _rows;
+	columns = _columns;
+	m = new T *[rows];
+	for (int i = 0; i < rows; i++)
 	{
-		bi.Report();
+		m[i] = new T[columns];
+	}
+	srand(time);
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < columns; j++)
+		{
+			m[i][j] = rand() % 10;
+		}
 	}
 };
 
@@ -299,25 +282,17 @@ Matrix<T> Matrix<T>::operator*(const Matrix &a) const
 
 
 template <typename T>
-T* Matrix<T>::operator[](int a) 
+T* Matrix<T>::operator[](int a) throw(Badindex &)
 {
-	testmarker=false;
 	T *newrow;
 	newrow = new T[columns];
-	try
+	if ((a > rows) || (a < 0))
 	{
-		if ((a > rows) || (a < 0))
-		{
-			throw Badindex(a);
-		}
-		for (int i = 0; i < columns; i++)
-		{
-			newrow[i] = m[a][i];
-		}
+		throw Badindex(a);
 	}
-	catch (Badindex & bi)
+	for (int i = 0; i < columns; i++)
 	{
-		testmarker=bi.Reportrow();
+		newrow[i] = m[a][i];
 	}
 	return newrow;
 }
