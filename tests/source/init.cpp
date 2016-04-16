@@ -52,9 +52,9 @@ SCENARIO("Matrix<char> +", "[additionchar]") {
 
 SCENARIO("Matrx<double> +", "[additiondouble]") {
 	Matrix<double> A = Matrix<double>(2, 2);
-	A.Zapoln("A2x2.txt");
+	A.Zapoln("A2x2d.txt");
 	Matrix<double> B = Matrix<double>(2, 2);
-	B.Zapoln("B2x2.txt");
+	B.Zapoln("B2x2d.txt");
 	Matrix<double> expected = Matrix<double>(2, 2);
 	expected.Zapoln("A+B2x2.txt");
 
