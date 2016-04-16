@@ -10,6 +10,25 @@
 using namespace std;
 
 template <typename T>
+
+
+	class Badindex //класс исключений
+	{
+	public:
+		int badindex;
+		Badindex(int i) : badindex(i) {}
+		void Report() 
+		{
+			cout << "This value can not be negative" << badindex << endl;
+			return ;
+		}
+	        void Reportrow() 
+		{
+			cout << "This row does not exist" << endl;
+			return ;
+		}
+	};
+
 class Matrix
 {
 private:
@@ -39,22 +58,7 @@ private:
 		return os;
 	}
 public:
-	class Badindex //класс исключений
-	{
-	public:
-		int badindex;
-		Badindex(int i) : badindex(i) {}
-		void Report() 
-		{
-			cout << "This value can not be negative" << badindex << endl;
-			return ;
-		}
-	        void Reportrow() 
-		{
-			cout << "This row does not exist" << endl;
-			return ;
-		}
-	};
+
 		
 	Matrix() :rows(0), columns(0), m(nullptr)
 	{}
