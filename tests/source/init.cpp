@@ -49,7 +49,7 @@ SCENARIO("Matrix<char> +", "[additionchar]") {
 	Matrix<char> result = A + B;
 	REQUIRE(result == expected);
 }
-/*
+
 SCENARIO("Matrx<double> +", "[additiondouble]") {
 	Matrix<double> A = Matrix<double>(2, 2);
 	A.Zapoln("A2x2d.txt");
@@ -60,7 +60,7 @@ SCENARIO("Matrx<double> +", "[additiondouble]") {
 
 	Matrix<double> result = A + B;
 	REQUIRE(result == expected);
-}*/
+}
 SCENARIO("Matrix *", "[multiplying]") {
 	Matrix<int> A = Matrix<int>(2, 2);
 	A.Zapoln("A2x2.txt");
