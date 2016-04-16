@@ -93,7 +93,8 @@ public:
 		//char fulpath[256] = "path";
 		string full_name;
 		full_name = name;
-		int  i,a,j;
+		int  i,j;
+		T a;
 		fstream fin;
 		//strcat_s(fulpath, path);
 		fin.open(full_name, ios::in);//îòêðûòèå ôàéëà
