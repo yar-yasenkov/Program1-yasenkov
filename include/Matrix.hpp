@@ -9,7 +9,7 @@
 
 using namespace std;
 
-template <typename T>
+
 
 
 	class Badindex //класс исключений
@@ -28,7 +28,7 @@ template <typename T>
 			return ;
 		}
 	};
-
+template <typename T>
 class Matrix
 {
 private:
