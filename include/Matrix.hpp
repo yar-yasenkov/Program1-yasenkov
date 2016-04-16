@@ -390,16 +390,19 @@ public:
 
 
 
-	Matrix operator+ (const Matrix&) const
+	Matrix operator+ (const Matrix& second) const
 	{
 	int a,b,r;
+	char at,bt;
 	Matrix res(rows, columns);
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < columns; j++)
 		{
-		        a=atoi(*m[i][j]);
-		        b=atoi(*a.m[i][j]);
+		        at=m[i][j];
+		        bt=second.m[i][j];
+		        a=atoi(at);
+		        b=atoi(bt);
 			r=a+b;
 			itoa(r,res.m[i][j],10);
 			//res.m[i][j] = m[i][j] + a.m[i][j];
@@ -411,7 +414,7 @@ public:
         char* operator[](int a) throw(Badindex &)
         {
                 char *newrow;
-        	newrow = new T[columns];
+        	newrow = new char[columns];
 	        if ((a > rows) || (a < 0))
          	{
 	        	throw Badindex(a);
