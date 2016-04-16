@@ -78,7 +78,7 @@ SCENARIO("Check exeption", "[exeption]") {
 	        bool marker=false;
 	        try
 	        {
-		Matrix<int> matrix(rows, columns);
+		  Matrix<int> matrix(rows, columns);
 	        }
 	        catch(Matrix<int>::Badindex & bi)
 	        {
@@ -87,11 +87,19 @@ SCENARIO("Check exeption", "[exeption]") {
 		REQUIRE(marker);
 	    
 }
-/*
+
 SCENARIO("Ceck exept", "[invalid row]") {
 	int r=-2;
+	bool marker=false;
 	Matrix<int> matrix(2,2);
 	int *result;
-	result = matrix[r];
-	REQUIRE(matrix.testmarker);
-}*/
+	try
+	{
+           result = matrix[r];
+	}
+	catch(Matrix<int>::Badindex & bi)
+	{
+		marker=true;
+	}
+	REQUIRE(marker);
+}
