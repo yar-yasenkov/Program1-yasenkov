@@ -72,13 +72,22 @@ SCENARIO("Matrix row", "[row]") {
 	REQUIRE(marker);
 }
 
-/*SCENARIO("Check exeption", "[exeption]") {
+SCENARIO("Check exeption", "[exeption]") {
 		int rows = -4;
 		int columns = 3;
+	        bool marker=false;
+	        try
+	        {
 		Matrix<int> matrix(rows, columns);
-		REQUIRE(matrix.testmarker);
+	        }
+	        catch(problem & bi)
+	        {
+	          marker=true;
+	        }
+		REQUIRE(marker);
+	    
 }
-
+/*
 SCENARIO("Ceck exept", "[invalid row]") {
 	int r=-2;
 	Matrix<int> matrix(2,2);
