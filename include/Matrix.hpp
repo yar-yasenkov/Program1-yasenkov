@@ -402,8 +402,9 @@ public:
 			a=m[i][j]-'0';
 			b=mat.m[i][j]-'0';
 			r=a+b;
-			itoa(r,rchar,10);
-			res.m[i][j] = m[i][j] + mat.m[i][j];
+			//itoa(r,rchar,10);
+			rchar=r+'0';
+			res.m[i][j] = rchar;
 		}
 	}
 	return res;
