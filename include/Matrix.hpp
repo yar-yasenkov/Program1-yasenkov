@@ -6,7 +6,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <cstdlib>
 using namespace std;
 
 
@@ -348,7 +348,7 @@ public:
 			m = new char *[rows];
 			for (int j = 0; j<rows; j++)
 			{
-				m[j] = new T[columns];
+				m[j] = new char[columns];
 				for (int i = 0; i < columns; i++)
 				{
 					m[j][i] = matrix.m[j][i];
